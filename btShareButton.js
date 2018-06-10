@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Add BT Share button
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  try to take over the world!
 // @author       You
 // @match        *://*/*
@@ -17,7 +17,10 @@
     for (let aLink of links) {
         if(aLink.href.startsWith('magnet:') || aLink.href.endsWith('.torrent')) {
             let shareButton = document.createElement("a");
-            shareButton.href = 'https://www.google.fr';
+            shareButton.onclick = () => {
+                alert(`Share ${aLink.href}`);
+            };
+            shareButton.href = 'javascript:;';
             let img = document.createElement("img");
             img.src = 'https://image.flaticon.com/icons/svg/189/189676.svg';
             img.style.height = '30px';
