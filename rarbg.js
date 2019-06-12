@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RARBG
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  Filtre les mauvais films et ajoute un lien vers Rotten Tomatoes
 // @author       You
 // @match        http*://rarbgaccessed.org/*
@@ -15,9 +15,11 @@
 
     movies.forEach((movie) => {
 
-        let rating = parseFloat(movie.querySelector('span').innerHTML.match(/.*IMDB: ([0-9]\.[0-9])\/10/i)[1]);
+        let match = movie.querySelector('span').innerHTML.match(/.*IMDB: ([0-9]\.[0-9])\/10/i);
 
-        if(rating < 7.0) {
+        let rating = match ? parseFloat(match[1]) : null;
+
+        if(!rating || rating < 7.0) {
             movie.closest('tr').remove();
         } else {
             let completeTitle = movie.querySelector('a').innerHTML.match(/(.*)\.[0-9]{4}\./i)[1].replace(/\./g, ' ');
