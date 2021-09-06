@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Gixen
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  Gixen auto login
 // @author       You
 // @match        https://www.gixen.com/main/home_2.php*
