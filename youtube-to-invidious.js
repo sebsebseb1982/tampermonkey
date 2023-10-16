@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube to Invidious
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      1.0
 // @match        *://www.youtube.com/watch?*
 // @grant        none
 // ==/UserScript==
